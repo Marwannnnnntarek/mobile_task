@@ -11,6 +11,14 @@ final class PostInitial extends PostState {}
 
 final class PostLoading extends PostState {}
 
-final class PostSuccess extends PostState {}
+final class PostSuccess extends PostState {
+  final List<PostModel> posts;
 
-final class PostFailure extends PostState {}
+  const PostSuccess(this.posts);
+}
+
+final class PostFailure extends PostState {
+  final String errMessage;
+
+  const PostFailure(this.errMessage);
+}
