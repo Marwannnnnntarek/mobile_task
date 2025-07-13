@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_task/features/user/presentations/views/widgets/user_post_body.dart';
 
 class UserPostView extends StatelessWidget {
   const UserPostView({super.key});
@@ -8,14 +9,7 @@ class UserPostView extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(title: Text("User Posts")),
-        body: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return Card(
-              child: ListTile(title: Text('Title'), subtitle: Text('SubTitle')),
-            );
-          },
-        ),
+        body: UserPostBody(),
       ),
     );
   }
