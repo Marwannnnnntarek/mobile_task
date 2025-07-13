@@ -16,7 +16,7 @@ class AppRoutes {
       GoRoute(path: home, builder: (context, state) => HomeView()),
       GoRoute(path: user, builder: (context, state) => UserView()),
       GoRoute(path: post, builder: (context, state) => PostView()),
-      GoRoute(path: post, builder: (context, state) => UserPostView()),
+      GoRoute(path: userPost, builder: (context, state) => UserPostView()),
     ],
   );
 }

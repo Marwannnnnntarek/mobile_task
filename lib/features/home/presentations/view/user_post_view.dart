@@ -5,6 +5,8 @@ class UserPostView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(
+      child: Scaffold(appBar: AppBar(title: Text("Users Posts"))),
+    );
   }
 }
