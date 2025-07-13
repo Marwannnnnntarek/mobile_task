@@ -6,7 +6,17 @@ class UserPostView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(appBar: AppBar(title: Text("Users Posts"))),
+      child: Scaffold(
+        appBar: AppBar(title: Text("User Posts")),
+        body: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Card(
+              child: ListTile(title: Text('Title'), subtitle: Text('SubTitle')),
+            );
+          },
+        ),
+      ),
     );
   }
 }
