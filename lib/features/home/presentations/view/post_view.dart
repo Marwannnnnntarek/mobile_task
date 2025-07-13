@@ -5,6 +5,13 @@ class PostView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Post View'));
+    return ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return Card(
+          child: ListTile(title: Text('Title'), subtitle: Text('Body')),
+        );
+      },
+    );
   }
 }
