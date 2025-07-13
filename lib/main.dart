@@ -6,6 +6,7 @@ import 'package:mobile_task/features/user/data/repos/user_repo_imp.dart';
 import 'package:mobile_task/features/user/presentations/view_model/user/user_cubit.dart';
 
 void main() {
+  setUp();
   runApp(const MyApp());
 }
 
