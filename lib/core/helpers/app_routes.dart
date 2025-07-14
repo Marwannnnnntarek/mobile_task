@@ -6,7 +6,7 @@ import 'package:mobile_task/features/post/data/repos/post_repo_imp.dart';
 import 'package:mobile_task/features/post/presentations/view_model/post/post_cubit.dart';
 import 'package:mobile_task/features/post/presentations/views/post_view.dart';
 import 'package:mobile_task/features/splash/views/splash_view.dart';
-import 'package:mobile_task/features/user/presentations/views/user_post_view.dart';
+import 'package:mobile_task/features/post/presentations/views/user_post_view.dart';
 import 'package:mobile_task/features/user/presentations/views/users_view.dart';
 
 class AppRoutes {

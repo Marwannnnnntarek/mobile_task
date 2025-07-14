@@ -66,7 +66,7 @@ class _SplashViewState extends State<SplashView>
                   fontSize: width * 0.08,
                   fontWeight: FontWeight.bold,
                   letterSpacing: 1.2,
-                  color: theme.primaryColorLight,
+                  color: theme.primaryColor,
                 ),
               ),
             ),
