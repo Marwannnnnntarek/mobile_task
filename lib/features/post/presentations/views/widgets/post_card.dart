@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_task/features/post/data/models/post_model/post_model.dart';
-import 'package:mobile_task/features/post/presentations/views/widgets/info_row.dart';
+import 'package:mobile_task/features/post/presentations/views/widgets/post_body_text.dart';
+import 'package:mobile_task/features/post/presentations/views/widgets/post_details.dart';
+import 'package:mobile_task/features/post/presentations/views/widgets/post_header.dart';
 
 class PostCard extends StatefulWidget {
   const PostCard({super.key, required this.post});
@@ -16,15 +18,9 @@ class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     final post = widget.post;
-    final width = MediaQuery.of(context).size.width;
-    final fontSize = width * 0.04;
 
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          isExpanded = !isExpanded;
-        });
-      },
+      onTap: () => setState(() => isExpanded = !isExpanded),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -43,26 +39,18 @@ class _PostCardState extends State<PostCard> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              post.title ?? 'No Title',
-              style: TextStyle(
-                fontSize: fontSize + 2,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            PostHeader(title: post.title),
             const SizedBox(height: 8),
-            Text(
-              post.body ?? 'No Body',
-              maxLines: isExpanded ? null : 2,
-              overflow:
-                  isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
-              style: TextStyle(fontSize: fontSize, color: Colors.grey[600]),
+            PostBodyText(body: post.body, isExpanded: isExpanded),
+            AnimatedCrossFade(
+              firstChild: const SizedBox.shrink(),
+              secondChild: PostDetails(post: post),
+              crossFadeState:
+                  isExpanded
+                      ? CrossFadeState.showSecond
+                      : CrossFadeState.showFirst,
+              duration: const Duration(milliseconds: 300),
             ),
-            if (isExpanded) const SizedBox(height: 12),
-            if (isExpanded) ...[
-              InfoRow(label: 'Post ID:', value: post.id?.toString()),
-              InfoRow(label: 'User ID:', value: post.userId?.toString()),
-            ],
           ],
         ),
       ),
