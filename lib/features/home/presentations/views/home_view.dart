@@ -12,9 +12,20 @@ class HomeView extends StatelessWidget {
         length: 2,
         child: Scaffold(
           appBar: AppBar(
-            title: TabBar(tabs: [Tab(text: 'Users'), Tab(text: 'Posts')]),
+            elevation: 4,
+            backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+
+            title: const TabBar(
+              indicatorColor: Colors.white,
+              indicatorWeight: 3,
+              labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              tabs: [Tab(text: 'Users'), Tab(text: 'Posts')],
+            ),
           ),
-          body: TabBarView(children: [UsersView(), PostView()]),
+          body: const TabBarView(
+            physics: BouncingScrollPhysics(),
+            children: [UsersView(), PostView()],
+          ),
         ),
       ),
     );
