@@ -1,9 +1,6 @@
 import 'package:dio/dio.dart';
 
 class ApiServices {
-  // final baseUrl = 'https://jsonplaceholder.typicode.com/';
-  // final Dio dio;
-
   ApiServices();
 
   final dio = Dio(
