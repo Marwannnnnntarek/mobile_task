@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mobile_task/core/widgets/custom_list_tile.dart';
+import 'package:mobile_task/core/widgets/custom_loading_indicator.dart';
 import 'package:mobile_task/features/user/presentations/view_model/user/user_cubit.dart';
 
 class UsersBody extends StatelessWidget {
@@ -30,7 +31,7 @@ class UsersBody extends StatelessWidget {
         } else if (state is UserFailure) {
           return Center(child: Text(state.errMessage));
         } else if (state is UserLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CustomLoadingIndicator());
         }
         return const SizedBox.shrink();
       },

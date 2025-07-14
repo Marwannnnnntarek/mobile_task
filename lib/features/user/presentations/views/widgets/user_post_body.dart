@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_task/core/widgets/custom_list_tile.dart';
+import 'package:mobile_task/core/widgets/custom_loading_indicator.dart';
 import 'package:mobile_task/features/post/presentations/view_model/post/post_cubit.dart';
 
 class UserPostBody extends StatelessWidget {
@@ -28,7 +29,7 @@ class UserPostBody extends StatelessWidget {
         } else if (state is PostFailure) {
           return Center(child: Text(state.errMessage));
         } else if (state is PostLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CustomLoadingIndicator());
         }
         return const SizedBox.shrink();
       },
