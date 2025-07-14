@@ -14,17 +14,23 @@ class UserRepoImp implements UesrRepo {
     try {
       final data = await apiServices.get(endPoint: 'users');
 
-      // The data is a List<dynamic> from the API
       final users =
           (data as List)
               .map((json) => UserModel.fromJson(json as Map<String, dynamic>))
               .toList();
 
       return Right(users);
-    } catch (e) {
-      return Left(
-        ServerFailure('Something went wrong. Please try again later.'),
-      );
+    } catch (e, stackTrace) {
+      print('❌ fetchUsers() error: $e');
+      print('📍 StackTrace: $stackTrace');
+
+      // Optionally, customize message for known issues
+      final message =
+          e.toString().contains('SocketException')
+              ? 'No internet connection.'
+              : 'Something went wrong. Please try again later.';
+
+      return Left(ServerFailure(message));
     }
   }
 }

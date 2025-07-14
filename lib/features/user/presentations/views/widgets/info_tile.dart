@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class InfoTile extends StatelessWidget {
   const InfoTile({super.key, required this.icon, required this.text});
